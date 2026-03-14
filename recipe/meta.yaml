@@ -1,5 +1,5 @@
 {% set name = "grheat" %}
-{% set version = "0.2.1" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/grheat-{{ version }}.tar.gz
-  sha256: 00640a4b41950a44073dcba0a22acbfaecd4e2555be6869d358a4d80dc17270f
+  sha256: 605aaa8fd98cdeb03a7dbbc1b83b03cb3014b6de74b325df3cf365cba22bb46e
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
