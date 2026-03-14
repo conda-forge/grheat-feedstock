@@ -3,7 +3,7 @@ About grheat-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/grheat-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/scottprahl/pygrin
+Home: https://github.com/scottprahl/grheat
 
 Package license: MIT
 
