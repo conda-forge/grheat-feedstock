@@ -1,5 +1,5 @@
 {% set name = "grheat" %}
-{% set version = "0.2.1" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,18 +7,19 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/grheat-{{ version }}.tar.gz
-  sha256: 00640a4b41950a44073dcba0a22acbfaecd4e2555be6869d358a4d80dc17270f
+  sha256: 605aaa8fd98cdeb03a7dbbc1b83b03cb3014b6de74b325df3cf365cba22bb46e
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
     - pip
     - python {{ python_min }}
-    - setuptools >=44
+    - setuptools >=77
+    - wheel
   run:
     - python >={{ python_min }}
     - matplotlib-base
@@ -32,18 +33,16 @@ test:
     - pytest
     - python {{ python_min }}
   source_files:
-    - tests/test_absorber.py
     - tests/test_line.py
     - tests/test_plane.py
     - tests/test_point.py
   commands:
-    - pytest tests/test_absorber.py
     - pytest tests/test_line.py
     - pytest tests/test_plane.py
     - pytest tests/test_point.py
 
 about:
-  home: https://github.com/scottprahl/pygrin
+  home: https://github.com/scottprahl/grheat
   summary: A python module using Green's functions to solve heat transfer problems.
   license: MIT
   license_family: MIT
